@@ -1,7 +1,8 @@
 from aiogram import Dispatcher
 
 from app.filters.role_filters import AdminFilter
-from app.handlers import base, inline_query
+from app.handlers import inline_query, admin
+from app.handlers import base
 from app.middlewares.log_middleware import LogMiddleware
 
 dp = Dispatcher()
@@ -9,7 +10,4 @@ dp = Dispatcher()
 
 def registration_dispatcher(dispatcher: Dispatcher) -> None:
     dispatcher.update.middleware(LogMiddleware())
-    dispatcher.include_routers(base.router, inline_query.router)
-    dispatcher.message.filter(AdminFilter())
-    dispatcher.callback_query.filter(AdminFilter())
-    dispatcher.inline_query.filter(AdminFilter())
+    dispatcher.include_routers(inline_query.router, base.router, admin.router())

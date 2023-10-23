@@ -1,7 +1,5 @@
 from aiogram import Router, F
 from aiogram.types import InlineQuery, InlineQueryResultArticle, InputTextMessageContent
-
-from app.services.offline_translate import argos_ru_en
 from app.services.translate.translator import translate
 
 router = Router()
@@ -9,7 +7,7 @@ router = Router()
 
 @router.inline_query()
 async def show_user_images(inline_query: InlineQuery):
-    trans = argos_ru_en.translate(inline_query.query)
+    trans = await translate(inline_query.query)
     results = [InlineQueryResultArticle(
         id="1",  # ссылки у нас уникальные, потому проблем не будет
         title="Перевод",

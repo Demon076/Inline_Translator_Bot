@@ -9,4 +9,4 @@ class AdminFilter(BaseFilter):
         super().__init__()
 
     async def __call__(self, update: Message | CallbackQuery | InlineQuery) -> bool:
-        return update.from_user.id == bot_settings.ADMIN
+        return update.from_user.id in bot_settings.ADMIN
