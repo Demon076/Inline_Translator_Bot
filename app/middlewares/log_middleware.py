@@ -34,6 +34,7 @@ class LogMiddleware(BaseMiddleware):
         logging.info(f'-------------------------------------------------------------------------------\n'
                      f'Пользователь: {inline_query.from_user.full_name}\n'
                      f'Отправил inline_query: {inline_query.query}\n'
+                     f'Chat_ID: {inline_query.from_user.id}\n'
                      f'Chat_Type: {inline_query.chat_type}\n'
                      f'Ссылка: {inline_query.from_user.username}\n'
                      f'Время: {datetime.utcnow() + timedelta(hours=3)}\n'

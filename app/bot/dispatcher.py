@@ -10,4 +10,4 @@ dp = Dispatcher()
 
 def registration_dispatcher(dispatcher: Dispatcher) -> None:
     dispatcher.update.middleware(LogMiddleware())
-    dispatcher.include_routers(inline_query.router, base.router, admin.router())
+    dispatcher.include_routers(admin.router(), inline_query.router, base.router)

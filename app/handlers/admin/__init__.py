@@ -8,5 +8,6 @@ def router() -> Router:
     router = Router()
     router.message.filter(AdminFilter())
     router.callback_query.filter(AdminFilter())
+    router.inline_query.filter(AdminFilter())
     router.include_router(inline_query.router)
     return router
