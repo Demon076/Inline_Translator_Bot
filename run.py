@@ -1,5 +1,6 @@
 import asyncio
 
+
 from app.bot.bot import bot_setup, bot
 from app.bot.dispatcher import dp, registration_dispatcher
 from app.bot.log import start_logging
